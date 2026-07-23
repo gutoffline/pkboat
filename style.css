@@ -1,0 +1,658 @@
+:root {
+    --bg-color: #080808;
+    --text-color: #ffffff;
+    --accent-color: #6e6e6e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Karla', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Libre Caslon Text', serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 40px 20px;
+    /* Padding lateral ajustado para bater com o restante do site */
+    z-index: 10;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo img {
+    height: 65px;
+    width: auto;
+}
+
+.tagline {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 4px;
+    margin-top: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a {
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+.social-icons svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.btn-contato {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.btn-contato:hover {
+    background-color: #333;
+}
+
+/* Ajuste Mobile para o Cabeçalho */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header-left,
+    .header-right {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tagline {
+        text-align: center;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('images/banner-principal.avif') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Seção do Vídeo */
+.video-section {
+    background-color: #050505;
+    /* Fundo super escuro conforme o original */
+    padding: 100px 20px;
+}
+
+.video-container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    /* Vídeo ocupa um pouco mais de espaço que o texto */
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.video-frame {
+    border: 1px solid rgb(189, 163, 138);
+    /* A cor da borda estilo moldura */
+    padding: 8px;
+    /* O espaço entre o vídeo e a borda */
+}
+
+.video-frame iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Mantém a proporção exata do YouTube */
+    height: auto;
+}
+
+.video-title {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 48px;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.video-desc {
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Responsividade para a seção do vídeo */
+@media (max-width: 900px) {
+    .video-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .video-title {
+        font-size: 38px;
+    }
+}
+
+
+/* Seções Gerais */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.title-large {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.text-muted {
+    color: #cccccc;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 15px 30px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+}
+
+/* Modelos (Black Boat / Modena Red) */
+.modelos {
+    background-color: #ffffff;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.modelos-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    /* Alterado para 1200px para alinhar com o resto do site */
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+}
+
+/* O card agora é um link */
+.modelo-card {
+
+    position: relative;
+    text-align: center;
+    padding: 60px 10px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #f0f0f0;
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+    color: inherit;
+    /* Mantém a cor do texto */
+    cursor: pointer;
+}
+
+
+
+.modelo-card:last-child {
+    border-right: none;
+}
+
+.modelo-card:hover {
+    background-color: #f4f4f4;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    transform: scale(1.01);
+}
+
+.modelo-card img {
+    width: 100%;
+    max-width: 600px;
+    /* Aumentado de 400px para 520px para destacar os barcos */
+    margin-bottom: 30px;
+    mix-blend-mode: multiply;
+}
+
+.modelo-card h2 {
+    font-size: 36px;
+    color: #0b1325;
+    margin-bottom: 20px;
+}
+
+.modelo-card p {
+    font-size: 15px;
+    color: #2c3e50;
+    line-height: 1.6;
+    max-width: 360px;
+    margin: 0 auto 30px;
+}
+
+/* Span simulando botão */
+.modelo-card .btn-dark {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    transition: background 0.3s;
+}
+
+.modelo-card:hover .btn-dark {
+    background: #333;
+}
+
+@media (max-width: 768px) {
+    .modelos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .modelo-card {
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .modelo-card:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Banner Imagem Larga (Top View) */
+.banner-topview {
+    width: 100%;
+    height: 100vh;
+    /* Ocupa 70% da altura da tela, ajustando-se a qualquer monitor */
+    min-height: 500px;
+    /* Garante que não fique muito pequeno em celulares */
+    background-image: url('images/dois-barcos.avif');
+    background-size: cover;
+    background-position: center;
+    /* background-attachment: fixed; */
+    /* Cria o efeito em que a imagem fica parada ao rolar a tela */
+}
+
+/* Ajuste para celulares (tira o parallax para melhor performance no mobile) */
+@media (max-width: 768px) {
+    .banner-topview {
+        background-attachment: scroll;
+        height: 40vh;
+        min-height: 300px;
+    }
+}
+
+
+/* Seção Prioridade (Fundo Escuro) */
+.prioridade-section {
+    background-color: #0a0a0a;
+    /* Fundo preto/cinza muito escuro */
+    padding: 120px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.prioridade-title {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 40px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.prioridade-desc {
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    /* Branco um pouco mais suave para leitura confortável */
+    line-height: 1.6;
+    max-width: 550px;
+    /* Limita a largura do texto igual ao print */
+    margin-bottom: 40px;
+}
+
+.btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 15px 40px;
+    font-family: 'Karla', sans-serif;
+    font-size: 16 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .prioridade-section {
+        padding: 80px 20px;
+    }
+
+    .prioridade-title {
+        font-size: 32px;
+    }
+}
+
+/* Seções Divididas (Imagem 50% / Texto 50%) */
+.split-section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 80vh;
+}
+
+.split-image {
+    flex: 1 1 50%;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.split-content {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ECEDEC;
+    padding: 80px 40px;
+}
+
+/* Alinhamento Mágico: Trava o texto na mesma linha de 1200px do resto do site */
+.split-content.text-left {
+    padding-left: max(40px, calc((100vw - 1200px) / 2));
+    padding-right: 60px;
+}
+
+.split-content.text-right {
+    padding-right: max(40px, calc((100vw - 1200px) / 2));
+    padding-left: 80px;
+    /* Dá um respiro da linha do meio */
+}
+
+.split-title {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 56px;
+    color: #000000;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.split-desc {
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    color: #2c3e50;
+    line-height: 1.7;
+    max-width: 380px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .split-section {
+        flex-direction: column;
+    }
+
+    .split-image,
+    .split-content {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .split-title {
+        font-size: 40px;
+    }
+
+    .split-content.text-left,
+    .split-content.text-right {
+        padding: 60px 20px;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* Galeria customizada do seu código */
+.galeria-bg {
+    background-color: #0d0d0d;
+    padding: 80px 0;
+}
+
+.gallery {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.main {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #0d0d0d;
+    overflow: hidden;
+}
+
+.main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wrap {
+    position: relative;
+    margin-top: 10px;
+}
+
+.track {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+    display: none;
+}
+
+.thumb {
+    flex: 0 0 calc((100% - 24px) / 5);
+    height: 90px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumb.active {
+    border-color: #fff;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(0, 0, 0, .7);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.prev {
+    left: 0px;
+}
+
+.next {
+    right: 0px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #0d0d0d;
+    padding: 80px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 60px;
+    /* Tamanho do logo ajustado */
+    width: auto;
+}
+
+.footer-info {
+    text-align: right;
+    border-top: 1px solid #f5eedc;
+    /* A linha fina acima do texto */
+    padding-top: 20px;
+    min-width: 420px;
+    /* Garante que a linha tenha um tamanho elegante */
+}
+
+.footer-info p {
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.footer-copyright {
+    color: #f5eedc;
+    /* Cor creme clarinha */
+}
+
+.footer-copyright span {
+    color: #a3704c;
+    /* Cor do traço '-' */
+}
+
+.footer-credits {
+    color: #ffffff;
+    letter-spacing: 0.16em;
+    /* O espaçamento largo do seu texto original */
+}
+
+/* Responsividade para o Rodapé */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-info {
+        text-align: center;
+        min-width: 100%;
+        border-top: none;
+        /* Remove a linha no celular para ficar mais limpo, ou mude se preferir */
+    }
+}

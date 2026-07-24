@@ -3,7 +3,6 @@ const images = [
     "images/lateral-barco.avif",
     "images/mulher.avif",
     "images/interna-geral.avif",
-    "images/barco-vermelho-agua.avif",
     "images/frente-barco.avif",
     "images/velocimetro.avif",
     "images/textura-bancos.avif",
@@ -64,3 +63,28 @@ document.querySelector(".prev").onclick = () => { prev(); restart(); };
 
 update();
 restart();
+
+
+// Efeito Cinemático de rolagem (Scroll Reveal)
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15 // Dispara a animação quando 15% do elemento aparece
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Adiciona a classe que faz o elemento aparecer
+            entry.target.classList.add('active');
+            
+            // Deixa de observar após animar a primeira vez (evita repetições)
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Seleciona todos os elementos com a classe .reveal e inicia a observação
+document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+});

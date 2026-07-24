@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Karla', sans-serif;
     background-color: var(--bg-color);
@@ -490,10 +494,18 @@ header {
 @media (max-width: 900px) {
     .split-section {
         flex-direction: column;
+        display: flex; /* Garante que o flexbox está ativo para a coluna */
     }
 
-    .split-image,
+    /* A mágica acontece aqui: forçamos a ordem no celular */
+    .split-image {
+        order: 1; /* A imagem SEMPRE será o elemento 1 (topo) */
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
     .split-content {
+        order: 2; /* O texto SEMPRE será o elemento 2 (embaixo) */
         flex: 1 1 100%;
         width: 100%;
     }
@@ -656,3 +668,21 @@ footer {
         /* Remove a linha no celular para ficar mais limpo, ou mude se preferir */
     }
 }
+
+
+/* Animações de Entrada (Cinematic Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1); /* Curva suave e editorial */
+}
+
+/* Estado quando o elemento entra na tela */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Opcional: Atraso para elementos aparecerem em sequência (efeito cascata) */
+.reveal.delay-1 { transition-delay: 0.2s; }
+.reveal.delay-2 { transition-delay: 0.4s; }

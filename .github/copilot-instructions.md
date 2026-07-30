@@ -1,0 +1,1 @@
+Sempre gere as mensagens de commit utilizando o idioma Português do Brasil (pt-BR).

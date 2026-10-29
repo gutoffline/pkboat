@@ -3,16 +3,21 @@ const base = [
     "velocimetro", "textura-bancos", "copos", "pessoas", "cachoeira", "motor"
 ];
 
+const eventPhotos = Array.from({ length: 20 }, (_, i) => {
+    const n = String(20 - i).padStart(2, "0");
+    return { type: "image", src: `images/evento-${n}.avif`, thumb: `images/evento-${n}.avif` };
+});
+
+const eventVideos = Array.from({ length: 5 }, (_, i) => {
+    const n = String(5 - i).padStart(2, "0");
+    return { type: "video", src: `videos/evento-${n}.mp4`, thumb: `images/evento-video-${n}.avif` };
+});
+
+// Mais recentes primeiro: fotos do evento, vídeos e depois as fotos antigas
 const items = [
-    ...base.map(n => ({ type: "image", src: `images/${n}.avif`, thumb: `images/${n}.avif` })),
-    ...Array.from({ length: 20 }, (_, i) => {
-        const n = String(i + 1).padStart(2, "0");
-        return { type: "image", src: `images/evento-${n}.avif`, thumb: `images/evento-${n}.avif` };
-    }),
-    ...Array.from({ length: 5 }, (_, i) => {
-        const n = String(i + 1).padStart(2, "0");
-        return { type: "video", src: `videos/evento-${n}.mp4`, thumb: `images/evento-video-${n}.avif` };
-    })
+    ...eventPhotos,
+    ...eventVideos,
+    ...base.map(n => ({ type: "image", src: `images/${n}.avif`, thumb: `images/${n}.avif` }))
 ];
 
 const frame = document.getElementById("frame");

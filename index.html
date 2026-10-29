@@ -4,38 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LS8NBNZ8ZB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { window.dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-LS8NBNZ8ZB');
-    </script>
-    <!-- Meta Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1403278524679347');
-        fbq('track', 'PageView');
-    </script>
+    <script src="consent.js?version=1.3"></script>
     <title>SEU BARCO. DO SEU JEITO. | PKBoat Pontoons</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&family=Karla:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css?version=1.1">
+    <link rel="stylesheet" href="style.css?version=1.3">
 </head>
 
 <body>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1403278524679347&ev=PageView&noscript=1"
-            alt="" /></noscript>
 
     <!-- Cabeçalho -->
     <!-- Cabeçalho -->
@@ -71,8 +45,11 @@
         </div>
     </header>
 
+    <h1 class="visually-hidden">PKBoat Pontoons — Seu barco. Do seu jeito.</h1>
+
+    <main>
     <!-- Banner Principal -->
-    <section class="hero"></section>
+    <section class="hero" aria-hidden="true"></section>
 
     <!-- Seção: Aproveite seu momento -->
     <!-- Seção: Aproveite seu momento (Vídeo) -->
@@ -80,14 +57,19 @@
         <div class="video-container reveal delay-1">
             <!-- Vídeo com a moldura -->
             <div class="video-frame">
-                <iframe src="https://www.youtube.com/embed/6yy3W_JpEHs" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <div class="video-facade" id="videoFacade">
+                    <button type="button" class="video-load" data-src="https://www.youtube-nocookie.com/embed/6yy3W_JpEHs?autoplay=1">
+                        <span class="video-play" aria-hidden="true">▶</span>
+                        <span>Assistir ao vídeo institucional</span>
+                    </button>
+                    <p class="video-note">Ao assistir, o vídeo é carregado do YouTube, que pode coletar dados de navegação.
+                        Veja a <a href="privacidade.html">Política de Privacidade</a>.</p>
+                </div>
             </div>
 
             <!-- Textos alinhados e quebrados conforme o print -->
             <div class="video-text-content">
-                <h3 class="video-title">Aproveite seu<br>momento.</h3>
+                <h2 class="video-title">Aproveite seu<br>momento.</h2>
                 <p class="video-desc">
                     Mais do que navegar, viva<br>
                     momentos para serem lembrados.<br>
@@ -106,7 +88,7 @@
         <div class="modelos-container">
             <!-- Modelo Preto (Card como Link) -->
             <a href="https://wa.me/5519999786799?text=quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20PK%20Classic26%20preto" class="modelo-card reveal delay-1" target="_blank" rel="noopener noreferrer">
-                <img src="images/barco_preto.avif" alt="PK Classic26">
+                <img src="images/barco_preto.avif" alt="Pontoon PKClassic 26 na cor preta, vista de cima">
                 <h2>PKCLASSIC 26</h2>
                 <p>Fale diretamente com nosso estaleiro para desenhar a disposição do deck, escolher os acabamentos em
                     couro e integrar sistemas de som de alta fidelidade ao seu novo pontoon.</p>
@@ -115,7 +97,7 @@
 
             <!-- Modelo Vermelho (Card como Link) -->
             <a href="https://wa.me/5519999786799?text=quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20PKCLASSIC%2026%20vermelho" class="modelo-card reveal delay-2" target="_blank" rel="noopener noreferrer">
-                <img src="images/barco_vermelho.avif" alt="PKCLASSIC 26">
+                <img src="images/barco_vermelho.avif" alt="Pontoon PKClassic 26 na cor vermelha, vista de cima">
                 <h2>PKCLASSIC 26</h2>
                 <p>Fale diretamente com nosso estaleiro para desenhar a disposição do deck, escolher os acabamentos em
                     couro e integrar sistemas de som de alta fidelidade ao seu novo pontoon.</p>
@@ -125,11 +107,11 @@
     </section>
 
     <!-- Banner de ponta a ponta (Top View Barcos) -->
-    <section class="banner-topview "></section>
+    <section class="banner-topview" aria-hidden="true"></section>
 
     <!-- Seção Prioridade (Fundo Escuro) -->
     <section class="prioridade-section">
-        <h3 class="prioridade-title  reveal delay-1">Aqui, seu pedido é prioridade.</h3>
+        <h2 class="prioridade-title  reveal delay-1">Aqui, seu pedido é prioridade.</h2>
         <p class="prioridade-desc  reveal delay-1">
             Enquanto muitas embarcações exigem meses de espera, a PKBoat acelera a entrega para que você aproveite seu
             investimento o quanto antes. Porque os melhores momentos não foram feitos para ficar esperando.
@@ -139,9 +121,9 @@
 
     <!-- 1. Seção: Amplo espaço interno -->
     <section class="split-section">
-        <div class="split-image " style="background-image: url('images/interna-geral.avif');"></div>
+        <div class="split-image" role="img" aria-label="Área interna ampla do pontoon PKBoat com assentos" style="background-image: url('images/interna-geral.avif');"></div>
         <div class="split-content text-right">
-            <h3 class="split-title reveal delay-1">Amplo<br>espaço<br>interno</h3>
+            <h2 class="split-title reveal delay-1">Amplo<br>espaço<br>interno</h2>
             <p class="split-desc reveal delay-2">
                 Espaço para reunir quem realmente importa. Com capacidade para até 17 pessoas, a PKBoat transforma
                 qualquer passeio em um momento inesquecível.
@@ -152,20 +134,20 @@
     <!-- 2. Seção: Ideal para momentos de descanso -->
     <section class="split-section">
         <div class="split-content text-left">
-            <h3 class="split-title reveal delay-1">Ideal para<br>momentos de<br>descanso</h3>
+            <h2 class="split-title reveal delay-1">Ideal para<br>momentos de<br>descanso</h2>
             <p class="split-desc reveal delay-2">
                 Mais do que navegar, é sobre aproveitar. Relaxe, contemple a paisagem e viva momentos de tranquilidade
                 em um ambiente criado para oferecer conforto e uma experiência única.
             </p>
         </div>
-        <div class="split-image" style="background-image: url('images/mulher.avif');"></div>
+        <div class="split-image" role="img" aria-label="Mulher relaxando a bordo de um pontoon PKBoat" style="background-image: url('images/mulher.avif');"></div>
     </section>
 
     <!-- 3. Seção: Qual seu nível de aventura? -->
     <section class="split-section">
-        <div class="split-image" style="background-image: url('images/motor.avif');"></div>
+        <div class="split-image" role="img" aria-label="Motor de popa de um pontoon PKBoat" style="background-image: url('images/motor.avif');"></div>
         <div class="split-content text-right">
-            <h3 class="split-title reveal delay-1">Qual seu<br>nível de<br>aventura?</h3>
+            <h2 class="split-title reveal delay-1">Qual seu<br>nível de<br>aventura?</h2>
             <p class="split-desc reveal delay-2">
                 Cada pessoa vive a água de um jeito. É por isso que a PKBoat permite que você escolha a potência do
                 motor
@@ -176,7 +158,7 @@
 
     <!-- Galeria Interativa -->
     <section class="galeria-bg text-center">
-        <h3 class="title-large">Galeria de imagens</h3>
+        <h2 class="title-large">Galeria de imagens</h2>
         <p class="text-muted" style="margin-bottom: 40px;">Conheça de perto o design, o conforto e a sofisticação
             que
             tornam a PKBoat uma experiência incomparável.</p>
@@ -199,6 +181,8 @@
 
 
 
+    </main>
+
     <!-- Rodapé -->
     <!-- Rodapé -->
     <footer>
@@ -211,12 +195,13 @@
             <!-- Textos e Linha na Direita -->
             <div class="footer-info">
                 <p class="footer-copyright">R. Henrique Wiezel, 732 - Cidade Industrial, Santa Bárbara d'Oeste, SP, Brazil, 13456-165<br>© 2026 PKBoat Pontoons <span>-</span> Engenharia naval e lifestyle</p>
+                <p class="footer-legal"><a href="privacidade.html">Política de Privacidade</a><span aria-hidden="true"> · </span><a href="#" id="open-cookie-prefs">Preferências de cookies</a></p>
                 <p class="footer-credits"><a href="https://agenciazmkt.com.br/" target="_blank" rel="noopener noreferrer">Produzido por z/mkt e dsgn</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="app.js?version=1.2"></script>
+    <script src="app.js?version=1.3"></script>
 </body>
 
 </html>

@@ -17,10 +17,10 @@ A página apresenta os modelos PKClassic 26, os diferenciais da embarcação, um
 ## Tecnologias
 
 - **HTML5**, **CSS3** e **JavaScript** puro, sem frameworks nem etapa de build
-- Fontes Google Fonts: Libre Caslon Text e Karla
+- Fontes Libre Caslon Text e Karla, hospedadas localmente em `fonts/`
 - Imagens em **AVIF**; vídeos da galeria em **MP4 (H.264)**
 - `IntersectionObserver` para as animações de entrada ao rolar (scroll reveal)
-- Google Analytics (gtag.js) e Meta Pixel para métricas
+- Google Analytics (Consent Mode v2) e Meta Pixel, carregados somente após o consentimento do visitante (`consent.js`)
 - Layout responsivo (testado de 320 px a 1440 px)
 
 ## Estrutura
@@ -28,7 +28,10 @@ A página apresenta os modelos PKClassic 26, os diferenciais da embarcação, um
 ```
 index.html   página única
 style.css    estilos
-app.js       galeria e animações de rolagem
+app.js       galeria, animações de rolagem e vídeo institucional (carrega só ao clicar)
+consent.js   banner de cookies (LGPD) e carregamento condicional de GA/Pixel
+privacidade.html  política de privacidade (rascunho para revisão jurídica)
+fonts/       fontes locais
 images/      imagens em AVIF (evento-XX = fotos do evento; evento-video-XX = capas dos vídeos)
 videos/      vídeos da galeria
 ```
@@ -52,6 +55,7 @@ python3 -m http.server 8000
 
 | Versão | Data | Alterações |
 | ------ | ---- | ---------- |
+| 1.3 | 29/10/2026 | Conformidade LGPD: banner de cookies com recusar/preferências, GA e Meta Pixel só após consentimento, política de privacidade (rascunho), YouTube em modo privacidade aprimorado com carregamento sob clique, fontes locais, `<h1>`/`<main>` e textos alternativos |
 | 1.2 | 29/10/2026 | Galeria passa a exibir as mídias mais recentes primeiro |
 | 1.1 | 29/10/2026 | Novas fotos e vídeos do evento padronizados (AVIF/MP4, duplicata removida); galeria redesenhada com fundo desfocado, contador, barra de progresso, suporte a vídeo e gesto de deslizar, mantendo as miniaturas |
 | 1.0.2 | 02/10/2026 | Tags de Google Analytics e Meta Pixel |

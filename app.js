@@ -36,7 +36,7 @@ document.getElementById("total").textContent = pad(items.length);
 items.forEach((it, i) => {
     const d = document.createElement("div");
     d.className = "thumb" + (it.type === "video" ? " video" : "");
-    d.innerHTML = `<img src="${it.thumb}" alt="Miniatura ${i + 1}" loading="lazy">`;
+    d.innerHTML = `<img src="${it.thumb}" alt="" loading="lazy">`;
     d.onclick = () => go(i);
     track.appendChild(d);
 });
@@ -54,7 +54,7 @@ function render(it) {
     if (it.type === "video") {
         const poster = document.createElement("img");
         poster.src = it.thumb;
-        poster.alt = "Vídeo";
+        poster.alt = "Capa de vídeo da galeria PKBoat";
         const play = document.createElement("button");
         play.className = "play";
         play.setAttribute("aria-label", "Reproduzir vídeo");
@@ -76,7 +76,7 @@ function render(it) {
     } else {
         const img = document.createElement("img");
         img.src = it.src;
-        img.alt = "Galeria " + (current + 1);
+        img.alt = `Foto ${current + 1} de ${items.length} da galeria PKBoat`;
         frame.appendChild(img);
     }
 }
@@ -164,3 +164,16 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('.reveal').forEach(element => {
     observer.observe(element);
 });
+
+// Vídeo institucional: o YouTube só é carregado quando o visitante clica
+const videoLoad = document.querySelector(".video-load");
+if (videoLoad) {
+    videoLoad.addEventListener("click", () => {
+        const ifr = document.createElement("iframe");
+        ifr.src = videoLoad.dataset.src;
+        ifr.title = "Vídeo institucional PKBoat";
+        ifr.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        ifr.allowFullscreen = true;
+        document.getElementById("videoFacade").replaceWith(ifr);
+    });
+}

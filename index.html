@@ -29,7 +29,7 @@
     <title>SEU BARCO. DO SEU JEITO. | PKBoat Pontoons</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&family=Karla:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?version=1.0">
+    <link rel="stylesheet" href="style.css?version=1.1">
 </head>
 
 <body>
@@ -182,13 +182,17 @@
             tornam a PKBoat uma experiência incomparável.</p>
 
         <div class="gallery">
-            <div class="main">
-                <img id="mainImg" alt="Destaque Galeria">
+            <div class="stage" id="stage">
+                <div class="stage-bg" id="bgA"></div>
+                <div class="stage-bg" id="bgB"></div>
+                <button class="nav prev" aria-label="Anterior">❮</button>
+                <figure class="frame" id="frame"></figure>
+                <button class="nav next" aria-label="Próximo">❯</button>
+                <div class="counter" id="counter"><span id="cur">01</span> / <span id="total">00</span></div>
+                <div class="progress"><span id="bar"></span></div>
             </div>
             <div class="wrap">
-                <button class="nav prev">❮</button>
                 <div class="track" id="track"></div>
-                <button class="nav next">❯</button>
             </div>
         </div>
     </section>
@@ -212,7 +216,7 @@
         </div>
     </footer>
 
-    <script src="app.js?version=1.0"></script>
+    <script src="app.js?version=1.1"></script>
 </body>
 
 </html>
